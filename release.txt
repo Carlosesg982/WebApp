@@ -1,0 +1,11 @@
+docker buildx build --platform linux/amd64 -t api-oficraft:latest . --load
+docker run -d -p 8000:8000 --name my-fastapi-container --env-file .env api-oficraft:latest
+
+az login
+az acr login --name acrwebappdev
+
+docker tag api-oficraft:latest acrwebappdev.azurecr.io/api-oficraft:latest
+docker tag api-oficraft:latest acrwebappdev.azurecr.io/api-oficraft:0.0.1
+
+docker push acrwebappdev.azurecr.io/api-oficraft:latest
+docker push acrwebappdev.azurecr.io/api-oficraft:0.0.1
