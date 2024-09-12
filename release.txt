@@ -1,5 +1,7 @@
 docker buildx build --platform linux/amd64 -t oficraft_api:latest . --load
-docker run -d -p 8000:8000 --name my-fastapi-container --env-file .env oficraft_api:latest
+docker run -d -p 8000:8000 --name my-fastapi-container-0.0.2 --env-file .env oficraft_api:latest
+docker container prune
+
 
 az login
 az acr login --name acrwebappdev

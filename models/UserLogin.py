@@ -1,4 +1,4 @@
-from pydantic import BaseModel, validator
+from pydantic import BaseModel, field_validator
 from typing import Optional
 import re
 
@@ -9,7 +9,7 @@ class UserRegister(BaseModel):
     password: str
     name: Optional[str]
 
-    @validator('password')
+    @field_validator('password')
     def password_validation(cls, value):
         if len(value) < 6:
             raise ValueError('Password must be at least 6 characters long')
@@ -25,7 +25,7 @@ class UserRegister(BaseModel):
 
         return value
 
-    @validator('name')
+    @field_validator('name')
     def name_validation(cls, value):
         if validate_sql_injection(value):
             raise ValueError('Invalid name')
