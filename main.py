@@ -1,6 +1,6 @@
 from fastapi import FastAPI, Request, Response
 
-from models.Userlogin import UserRegister
+from models.UserLogin import UserRegister
 from models.Card import Card
 
 from controllers.o365 import login_o365 , auth_callback_o365

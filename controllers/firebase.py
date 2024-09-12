@@ -12,7 +12,7 @@ import firebase_admin
 from firebase_admin import credentials, auth as firebase_auth
 from utils.database import fetch_query_as_json, get_db_connection
 from utils.security import create_jwt_token
-from models.Userlogin import UserRegister
+from models.UserLogin import UserRegister
 
 # Configurar logging
 logging.basicConfig(level=logging.INFO)
@@ -22,7 +22,7 @@ load_dotenv()
 
 
 # Inicializar la app de Firebase Admin
-cred = credentials.Certificate("secrets/admin-firebasesdk.json")
+cred = credentials.Certificate("secrets/oficraft-7d3e0-firebase-adminsdk-t38ab-0a2b1a4691.json")
 firebase_admin.initialize_app(cred)
 
 async def register_user_firebase(user: UserRegister):
